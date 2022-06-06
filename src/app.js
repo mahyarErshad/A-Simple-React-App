@@ -1,8 +1,10 @@
-import React , {useState} from "react"
-import Header from "./components/Header/index.jsx"
-import SideBar from "./components/SideBar/index.jsx"
-import MainArea from "./components/MainArea/index.jsx"
-import Footer from "./components/Footer/index.jsx"
+import React , {useState } from "react"
+import Header from "./components/Header/index.js"
+import SideBar from "./components/SideBar/index.js"
+import MainArea from "./components/MainArea/index.js"
+import Footer from "./components/Footer/index.js"
+import ourContext from "./components/ourContext/index.js"
+
 
 function App() {
   const [size , setSize] = useState(16)
@@ -20,11 +22,14 @@ function App() {
       setSize(16);
     }
   return (
+    <ourContext.Provider value={{size, setSize, color, setColor, likeCounter, setLikeCounter, handleSize, handleColor, handleButton}}>
     <div className="grid-parent">
       <Header/>
       <SideBar/>
       <MainArea/>
       <Footer/>
     </div>
+    </ourContext.Provider>
   )
 }
+export default App;
